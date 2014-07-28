@@ -20,13 +20,12 @@ RUN apt-get update -qq && \
 VOLUME /config
 VOLUME /dropbox
 
-RUN chown nobody:users /home && \
-    ln -sf /config /home/.dropbox && \
-    ln -sf /dropbox /home/Dropbox
-
 RUN mkdir -p /opt/dropbox && wget -nv -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar -xzf - --strip-components=1 -C /opt/dropbox
 
 EXPOSE 17500
+
+RUN ln -sf /config/ /home/.dropbox
+RUN ln -sf /dropbox/ /home/Dropbox
 
 # Add Dropbox to runit
 RUN mkdir /etc/service/dropbox
