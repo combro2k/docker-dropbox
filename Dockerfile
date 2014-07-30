@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.9.11
-MAINTAINER gfjardim <gfjardim@gmail.com>
+MAINTAINER gfjardim <gfjardim@gmail.com> 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN usermod -u 99 nobody && \
