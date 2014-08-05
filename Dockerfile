@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.9.11
-MAINTAINER gfjardim <gfjardim@gmail.com> 
+MAINTAINER gfjardim <gfjardim@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN usermod -u 99 nobody && \
@@ -24,8 +24,8 @@ RUN mkdir -p /opt/dropbox && wget -nv -O - "https://www.dropbox.com/download?pla
 
 EXPOSE 17500
 
-RUN ln -sf /config/ /home/.dropbox
-RUN ln -sf /dropbox/ /home/Dropbox
+VOLUME /home/.dropbox
+VOLUME /home/Dropbox
 
 # Add Dropbox to runit
 RUN mkdir /etc/service/dropbox
